@@ -2,6 +2,9 @@
 
 `kmodguard` is a kernel module whilelisting system.
 
+https://github.com/user-attachments/assets/e2bdf68c-5508-49a3-9e8d-3bafef152cb6
+
+
 ## Components
 
 - `kmodctl`: operator CLI (`init`, `start`, `stop`, `status`, `hook`, `allow`, `remove`, `apply`)
