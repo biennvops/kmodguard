@@ -5,6 +5,11 @@
 https://github.com/user-attachments/assets/e2bdf68c-5508-49a3-9e8d-3bafef152cb6
 
 
+## Why `kmodguard?`
+
+- You don't want to maintain a `modprobe.d` blacklist.
+- You don't like setting `kernel.modules_disabled = 1` because you want loadable modules support without rebooting.
+
 ## Components
 
 - `kmodctl`: operator CLI (`init`, `start`, `stop`, `status`, `hook`, `allow`, `remove`, `apply`)
