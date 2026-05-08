@@ -1,0 +1,24 @@
+[Unit]
+Description=Kmodguard kernel module policy daemon
+DefaultDependencies=no
+After=local-fs.target
+Before=sysinit.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/kmodctl arm --policy /etc/kmodguard/policy.toml --handler /usr/libexec/kmodguard/kmodguard-hook --original-modprobe-state /run/kmodguard/original_modprobe
+ExecStart=/usr/libexec/kmodguard/kmodguard --policy /etc/kmodguard/policy.toml --socket /run/kmodguard/daemon.sock --original-modprobe-state /run/kmodguard/original_modprobe
+ExecStopPost=/usr/bin/kmodctl disarm --original-modprobe-state /run/kmodguard/original_modprobe --force
+Restart=on-failure
+RestartSec=1
+RuntimeDirectory=kmodguard
+RuntimeDirectoryMode=0755
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=false
+ProtectKernelModules=false
+ReadWritePaths=/run/kmodguard /etc/kmodguard
+
+[Install]
+WantedBy=sysinit.target

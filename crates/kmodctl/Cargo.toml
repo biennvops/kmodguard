@@ -1,0 +1,16 @@
+[package]
+name = "kmodctl"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "kmodctl"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+chrono.workspace = true
+clap.workspace = true
+log.workspace = true
+syslog.workspace = true
+kmodguard-core = { path = "../kmodguard-core" }

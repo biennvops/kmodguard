@@ -1,0 +1,25 @@
+[workspace]
+members = [
+    "crates/kmodguard-core",
+    "crates/kmodguard",
+    "crates/kmodctl",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "AGPL-3.0-only"
+authors = ["Biên <bien2k4.email@protonmail.com>"]
+
+[workspace.dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+log = "0.4"
+regex = "1"
+serde = { version = "1", features = ["derive"] }
+syslog = "7"
+thiserror = "2"
+toml = "0.8"
+chrono = { version = "0.4", features = ["serde"] }
+rustix = { version = "1", features = ["fs", "net", "process"] }
